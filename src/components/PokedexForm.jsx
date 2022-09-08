@@ -7,14 +7,14 @@ export const PokedexForm = ({ state, setState, setPokemonId}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (pokemon !== '' && !isNaN(parseInt(pokemon))) {
+        if (pokemon !== '') {
         
-            if(parseInt(state.id) !== parseInt(pokemon)){
-               
-                const pokemonID = parseInt(pokemon)
+            const pokemonID = !isNaN(pokemon) ? parseInt(pokemon) : pokemon.toLowerCase()
                 
+            if(state.id !== pokemonID){
+               
                 // Estara cargando por que hará una petición a la API
-                console.log("entra")
+    
                 setState({
                       ...state,
                       loading: true,
@@ -40,11 +40,6 @@ export const PokedexForm = ({ state, setState, setPokemonId}) => {
             }
         }
         setPokemon('')
-        // setState({
-        //     ...state,
-        //     loading: false,
-        //     error: false
-        // })
         
      }
   

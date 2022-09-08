@@ -23,6 +23,7 @@ export const useFetchPokemon = () => {
                 ...state,
                 pokemon: data,
                 loading: false,
+                error: false,
                 id: pokemonID
             })
           })
